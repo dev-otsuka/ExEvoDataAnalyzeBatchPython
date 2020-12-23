@@ -1,9 +1,9 @@
 import dataclasses
-from infrastructure.utility.Trim import *
+from infrastructure.utility import Trim
 
 @dataclasses.dataclass(frozen=True)
 class BigBonusCount:
-    value: int
+    value: str
 
 @dataclasses.dataclass(frozen=True)
 class RegularBonusCount:
@@ -30,6 +30,10 @@ class RegularBonusAverage:
     value: str
 
 @dataclasses.dataclass(frozen=True)
+class GraphTransition:
+    value: str
+
+@dataclasses.dataclass(frozen=True)
 class SingleDaySummaryData:
     bigBonusCount: BigBonusCount
     regularBonusCount: RegularBonusCount
@@ -38,13 +42,4 @@ class SingleDaySummaryData:
     totalAverage: TotalAverage
     bigBonusAverage: BigBonusAverage
     regularBonusAverage: RegularBonusAverage
-
-    def __init__(self, bigBonusCount: BigBonusCount, regularBonusCount: RegularBonusCount, totalPlayCount: TotalPlayCount, maxPayout: MaxPayout, totalAverage: TotalAverage, bigBonusAverage: BigBonusAverage, regularBonusAverage: RegularBonusAverage):
-        self.bigBonusCount = Trim.execute(bigBonusCount)
-        self.regularBonusCount = Trim.execute(regularBonusCount)
-        self.totalPlayCount = Trim.execute(totalPlayCount)
-        self.maxPayout = Trim.execute(maxPayout)
-        self.totalAverage = Trim.execute(totalAverage)
-        self.bigBonusAverage = Trim.execute(bigBonusAverage)
-        self.regularBonusAverage = Trim.execute(regularBonusAverage)
-
+    graphTransition: GraphTransition

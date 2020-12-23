@@ -5,4 +5,3 @@ from application.EvoDataAnalyzeScenario import *
 
 evoDataAnalyzeScenario = EvoDataAnalyzeScenario()
 evoDataAnalyzeScenario.execute()
-
